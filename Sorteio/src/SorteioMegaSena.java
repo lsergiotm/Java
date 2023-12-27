@@ -15,7 +15,6 @@ public class SorteioMegaSena {
     public static ArrayList<Integer> sortearNumeros(int totalNumeros) {
         Random rand = new Random();
         Set<Integer> numerosSet = new HashSet<>();
-        ArrayList<Integer> numeros = new ArrayList<>();
 
         // Define a quantidade de números pares e ímpares a serem sorteados
         int pares = (int) (totalNumeros * 0.4286);
@@ -24,9 +23,7 @@ public class SorteioMegaSena {
         // Números pares
         while (numerosSet.size() < pares) {
             int numeroPar = rand.nextInt(31) * 2; // Números pares entre 0 e 60
-            if (numeroPar <= 60) {
-                numerosSet.add(numeroPar);
-            }
+            numerosSet.add(numeroPar);
         }
 
         // Números ímpares
@@ -43,7 +40,7 @@ public class SorteioMegaSena {
         }
 
         // Converte o conjunto para a lista
-        numeros.addAll(numerosSet);
+        ArrayList<Integer> numeros = new ArrayList<>(numerosSet);
 
         // Embaralha a lista de números
         Collections.shuffle(numeros);
